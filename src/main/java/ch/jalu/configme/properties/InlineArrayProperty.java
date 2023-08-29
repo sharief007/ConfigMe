@@ -16,6 +16,7 @@ import java.util.Objects;
  */
 public class InlineArrayProperty<T> extends BaseProperty<T[]> {
 
+    // TODO: Migrate to InlineArrayPropertyType
     private final InlineArrayConverter<T> inlineConverter;
 
     /**

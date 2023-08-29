@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class ListPropertyType<E> extends CollectionPropertyType<E, List<E>> {
 
-    public ListPropertyType(PropertyType<E> entryType) {
+    public ListPropertyType(@NotNull PropertyType<E> entryType) {
         super(entryType);
     }
 

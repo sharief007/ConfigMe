@@ -27,7 +27,7 @@ public class StringType extends PropertyAndLeafType<String> {
     }
 
     @Override
-    public @Nullable Object toExportValue(@Nullable String value) {
+    public @NotNull Object toExportValue(@NotNull String value) {
         return value;
     }
 

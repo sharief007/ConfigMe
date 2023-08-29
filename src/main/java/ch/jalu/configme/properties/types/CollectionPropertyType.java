@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -30,7 +31,7 @@ public abstract class CollectionPropertyType<E, C extends Collection<E>> impleme
     }
 
     @Override
-    public @Nullable Object toExportValue(@NotNull C value) {
+    public @NotNull List<?> toExportValue(@NotNull C value) {
         return value.stream()
             .map(entryType::toExportValue)
             .collect(Collectors.toList());

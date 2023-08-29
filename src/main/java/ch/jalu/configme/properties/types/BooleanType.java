@@ -32,7 +32,7 @@ public class BooleanType extends PropertyAndLeafType<Boolean> {
     }
 
     @Override
-    public @NotNull Object toExportValue(@NotNull Boolean value) {
+    public @NotNull Boolean toExportValue(@NotNull Boolean value) {
         return value;
     }
 
