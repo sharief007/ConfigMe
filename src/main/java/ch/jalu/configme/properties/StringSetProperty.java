@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Set;
 
 /**
- * String set property. The sets are immutable.
+ * String set property. The sets are immutable. TODO "immutable" comment not really true
  */
 public class StringSetProperty extends SetProperty<String> {
 
@@ -28,10 +28,5 @@ public class StringSetProperty extends SetProperty<String> {
      */
     public StringSetProperty(@NotNull String path, @NotNull Set<String> defaultValue) {
         super(path, StringType.STRING, defaultValue);
-    }
-
-    @Override
-    public @NotNull Object toExportValue(@NotNull Set<String> value) {
-        return value;
     }
 }

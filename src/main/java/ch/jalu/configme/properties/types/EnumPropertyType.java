@@ -43,7 +43,7 @@ public class EnumPropertyType<E extends Enum<E>> implements PropertyType<E> {
         return value.name();
     }
 
-    public final @NotNull Class<E> getType() {
+    public final @NotNull Class<E> getEnumType() {
         return enumType;
     }
 }

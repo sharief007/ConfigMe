@@ -94,6 +94,6 @@ class EnumPropertyTypeTest {
         EnumPropertyType<StandardOpenOption> propertyType = new EnumPropertyType<>(StandardOpenOption.class);
 
         // when / then
-        assertThat(propertyType.getType(), equalTo(StandardOpenOption.class));
+        assertThat(propertyType.getEnumType(), equalTo(StandardOpenOption.class));
     }
 }
