@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiFunction;
@@ -36,7 +36,7 @@ public class CollectionPropertyBuilder<E, C extends Collection<E>, P extends Pro
                                                                                    @NotNull PropertyType<E> entryType) {
         return new CollectionPropertyBuilder<>(
             (path, defVal) -> new SetProperty<>(path, entryType, defVal),
-            new HashSet<>());
+            new LinkedHashSet<>());
     }
 
     public static <E, C extends Collection<E>, P extends Property<C>>
@@ -56,6 +56,7 @@ public class CollectionPropertyBuilder<E, C extends Collection<E>, P extends Pro
     }
 
     public @NotNull P build() {
+        PropertyBuilderUtils.requireNonNullPath(path);
         return createPropertyFunction.apply(path, defaultValue);
     }
 }
