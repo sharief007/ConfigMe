@@ -2,6 +2,7 @@ package ch.jalu.configme.properties.builder;
 
 import ch.jalu.configme.properties.ArrayProperty;
 import ch.jalu.configme.properties.Property;
+import ch.jalu.configme.properties.types.ArrayPropertyType;
 import ch.jalu.configme.properties.types.PropertyType;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,6 +31,13 @@ public class ArrayPropertyBuilder<E, P extends Property<E[]>> {
         return new ArrayPropertyBuilder<>(
             (path, defVal) -> new ArrayProperty<>(path, defVal, entryType, arrayProducer),
             arrayProducer);
+    }
+
+    public static <E> @NotNull ArrayPropertyBuilder<E, ArrayProperty<E>> arrayBuilder(
+                                                                              @NotNull ArrayPropertyType<E> arrayType) {
+        return new ArrayPropertyBuilder<>(
+            (path, defVal) -> new ArrayProperty<>(path, arrayType, defVal),
+            arrayType.getArrayProducer());
     }
 
     public @NotNull ArrayPropertyBuilder<E, P> path(@NotNull String path) {

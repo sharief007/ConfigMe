@@ -58,4 +58,8 @@ public class BooleanType extends PropertyAndLeafType<Boolean> {
         }
         return null;
     }
+
+    public ArrayPropertyType<Boolean> arrayType() {
+        return new ArrayPropertyType<>(this, Boolean[]::new);
+    }
 }

@@ -7,6 +7,7 @@ import ch.jalu.configme.properties.types.PropertyType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -47,6 +48,11 @@ public class CollectionPropertyBuilder<E, C extends Collection<E>, P extends Pro
 
     public @NotNull CollectionPropertyBuilder<E, C, P> path(@NotNull String path) {
         this.path = path;
+        return this;
+    }
+
+    public @NotNull CollectionPropertyBuilder<E, C, P> defaultValue(@NotNull E @NotNull ... entries) {
+        defaultValue.addAll(Arrays.asList(entries));
         return this;
     }
 

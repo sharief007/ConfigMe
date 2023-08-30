@@ -42,4 +42,8 @@ public class ArrayPropertyType<T> implements PropertyType<T[]> {
             .map(entryType::toExportValue)
             .collect(Collectors.toList());
     }
+
+    public IntFunction<T[]> getArrayProducer() {
+        return arrayProducer;
+    }
 }

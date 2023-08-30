@@ -32,11 +32,13 @@ public class MapPropertyBuilder<V, M extends Map<String, V>, P extends Property<
         return this;
     }
 
+    // TODO: "add" or "put"?
     public @NotNull MapPropertyBuilder<V, M, P> addToDefaultValue(@NotNull String key, @NotNull V value) {
         defaultValue.put(key, value);
         return this;
     }
 
+    // TODO: Here and in other builders, disallow both types of default value setting to be used in same builder?
     public @NotNull MapPropertyBuilder<V, M, P> defaultValue(@NotNull Map<String, V> defaultValue) {
         this.defaultValue.clear();
         this.defaultValue.putAll(defaultValue);

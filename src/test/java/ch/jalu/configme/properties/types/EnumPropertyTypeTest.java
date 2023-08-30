@@ -1,7 +1,6 @@
-package ch.jalu.configme.properties.type;
+package ch.jalu.configme.properties.types;
 
 import ch.jalu.configme.properties.convertresult.ConvertErrorRecorder;
-import ch.jalu.configme.properties.types.EnumPropertyType;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.StandardOpenOption;

@@ -4,6 +4,7 @@ import ch.jalu.configme.exception.ConfigMeException;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -42,5 +43,13 @@ public final class Utils {
                 throw new ConfigMeException("Failed to create file '" + file + "'", e);
             }
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T[] createArrayForReferenceType(Class<T> component, int size) {
+        if (component.isPrimitive()) {
+            throw new IllegalArgumentException("The component type may not be a primitive type");
+        }
+        return (T[]) Array.newInstance(component, size);
     }
 }

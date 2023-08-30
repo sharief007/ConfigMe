@@ -1,7 +1,7 @@
 package ch.jalu.configme.properties;
 
 import ch.jalu.configme.properties.convertresult.ConvertErrorRecorder;
-import ch.jalu.configme.properties.inlinearray.StandardInlineArrayConverters;
+import ch.jalu.configme.properties.types.InlineArrayPropertyType;
 import ch.jalu.configme.resource.PropertyReader;
 import org.junit.jupiter.api.Test;
 
@@ -21,10 +21,10 @@ class InlineArrayPropertyTest {
         BaseProperty<String[]> property = new InlineArrayProperty<>(
             "inline_value",
             new String[] {"multiline", "message"},
-            StandardInlineArrayConverters.STRING
+            InlineArrayPropertyType.STRING
         );
         PropertyReader reader = mock(PropertyReader.class);
-        given(reader.getString("inline_value")).willReturn("hello\nkek");
+        given(reader.getObject("inline_value")).willReturn("hello\nkek");
 
         // when
         String[] result = property.getFromReader(reader, new ConvertErrorRecorder());
@@ -39,7 +39,7 @@ class InlineArrayPropertyTest {
         Property<String[]> property = new InlineArrayProperty<>(
             "array",
             new String[] {},
-            StandardInlineArrayConverters.STRING
+            InlineArrayPropertyType.STRING
         );
         String[] given = new String[] {"hello, chert", "how in hell?"};
 

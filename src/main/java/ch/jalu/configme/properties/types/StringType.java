@@ -48,4 +48,8 @@ public class StringType extends PropertyAndLeafType<String> {
     protected @NotNull String transformToString(@NotNull Object object) {
         return object.toString();
     }
+
+    public ArrayPropertyType<String> arrayType() {
+        return new ArrayPropertyType<>(this, String[]::new);
+    }
 }
